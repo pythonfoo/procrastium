@@ -2,7 +2,6 @@ __author__ = 'bison'
 
 import os
 import pychromecast
-from pychromecast.controllers.youtube import YouTubeController
 from pychromecast.controllers.media import MediaController
 import time
 
@@ -21,6 +20,9 @@ print('start discovery')
 allCastNames = pychromecast.get_chromecasts_as_dict().keys()
 allCasts = {}
 print('end discovery')
+
+if len(allCastNames) == 0:
+    raise Exception('NO CHROMECASTS FOUND!')
 
 castIndex = {}
 for castName in allCastNames:
@@ -50,7 +52,7 @@ while True:
             cast.register_handler(mc)
 
             if conf.castmode == 'random':
-                imgFile = onlyfiles[castIndex[castName]]
+                imgFile = random.choice(onlyfiles)
 
             mc.play_media('http://'+ conf.localIp +':8000/'+ imgFile, 'Image/jpg')
 
