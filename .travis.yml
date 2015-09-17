@@ -1,0 +1,8 @@
+language: python
+python:
+  - "3.4"
+install: "pip install -r requirements.txt"
+after_success:
+  - eval "$(ssh-agent -s)"
+  - ssh-add .travis/deploy_key.pem
+  - rsync -aPv  ./ procrastium@abstraktum.ipv6.jetzt:procrastium/
