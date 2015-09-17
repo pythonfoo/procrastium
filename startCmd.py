@@ -28,9 +28,9 @@ for castName in allCastNames:
     allCasts[castName] = cast
     castIndex[castName] = len(castIndex)
 
-for castName, cast in allCasts.items():
-    #cast.quit_app()
-    pass
+if conf.closeCurrentApp:
+    for castName, cast in allCasts.items():
+        cast.quit_app()
 
 print(castIndex)
 

@@ -15,3 +15,6 @@ castmode = 'mirror'
 
 # chromecasts you dont want to stream on
 blacklist = []
+
+# close the current running app running on the chromecast
+closeCurrentApp = True
