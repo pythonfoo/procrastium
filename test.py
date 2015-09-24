@@ -1,5 +1,12 @@
 __author__ = 'bison'
 
+print('FOO')
+import souper
+soup = souper.souperDuper('bison')
+soupNext = soup.grabPart()
+soupNext.__next__()
+exit()
+
 import pychromecast
 from pychromecast.controllers.youtube import YouTubeController
 from pychromecast.controllers.media import MediaController
