@@ -41,7 +41,7 @@ onlyfiles = []
 soup = None
 soupNext = None
 if conf.imageSource == 'local':
-    onlyfiles = [ f for f in listdir(conf.pathWithImages) if isfile(join(conf.pathWithImages,f)) ]
+    onlyfiles = [ f for f in os.listdir(conf.pathWithImages) if os.path.isfile(os.path.join(conf.pathWithImages,f)) ]
 elif conf.imageSource == 'soup':
     import souper
     soup = souper.souperDuper(conf.soup)
